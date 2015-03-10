@@ -24,6 +24,8 @@
 		90A672F55A2E42DC80C33531 /* libPods-GKUserKitExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 364F6077750896C4F31DB077 /* libPods-GKUserKitExample.a */; };
 		C813F3BF1A9F65DD0080155E /* GKUserForgotPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = C813F3BE1A9F65DD0080155E /* GKUserForgotPassword.m */; };
 		C813F3C11A9F6CC10080155E /* GKUserBackendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C813F3C01A9F6CC10080155E /* GKUserBackendTests.m */; };
+		C8ACD0CB1AA9DE4900F9E0EB /* GKChangePasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ACD0C91AA9DE4900F9E0EB /* GKChangePasswordController.m */; };
+		C8ACD0CC1AA9DE4900F9E0EB /* GKChangePasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8ACD0CA1AA9DE4900F9E0EB /* GKChangePasswordController.xib */; };
 		C8CA7F5A1A9A11FC00E0B44F /* GKForgotPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CA7F591A9A11FC00E0B44F /* GKForgotPasswordController.m */; };
 		C8CA7F5C1A9A121D00E0B44F /* GKForgotPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8CA7F5B1A9A121D00E0B44F /* GKForgotPasswordController.xib */; };
 		C8CA7F601A9A167E00E0B44F /* GKVerificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8CA7F5E1A9A167E00E0B44F /* GKVerificationTableViewCell.m */; };
@@ -94,6 +96,9 @@
 		C813F3BD1A9F65DD0080155E /* GKUserForgotPassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKUserForgotPassword.h; sourceTree = "<group>"; };
 		C813F3BE1A9F65DD0080155E /* GKUserForgotPassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKUserForgotPassword.m; sourceTree = "<group>"; };
 		C813F3C01A9F6CC10080155E /* GKUserBackendTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKUserBackendTests.m; sourceTree = "<group>"; };
+		C8ACD0C81AA9DE4900F9E0EB /* GKChangePasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKChangePasswordController.h; sourceTree = "<group>"; };
+		C8ACD0C91AA9DE4900F9E0EB /* GKChangePasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKChangePasswordController.m; sourceTree = "<group>"; };
+		C8ACD0CA1AA9DE4900F9E0EB /* GKChangePasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKChangePasswordController.xib; sourceTree = "<group>"; };
 		C8CA7F581A9A11FC00E0B44F /* GKForgotPasswordController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKForgotPasswordController.h; sourceTree = "<group>"; };
 		C8CA7F591A9A11FC00E0B44F /* GKForgotPasswordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKForgotPasswordController.m; sourceTree = "<group>"; };
 		C8CA7F5B1A9A121D00E0B44F /* GKForgotPasswordController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKForgotPasswordController.xib; sourceTree = "<group>"; };
@@ -290,6 +295,9 @@
 				C8CA7F581A9A11FC00E0B44F /* GKForgotPasswordController.h */,
 				C8CA7F591A9A11FC00E0B44F /* GKForgotPasswordController.m */,
 				C8CA7F5B1A9A121D00E0B44F /* GKForgotPasswordController.xib */,
+				C8ACD0C81AA9DE4900F9E0EB /* GKChangePasswordController.h */,
+				C8ACD0C91AA9DE4900F9E0EB /* GKChangePasswordController.m */,
+				C8ACD0CA1AA9DE4900F9E0EB /* GKChangePasswordController.xib */,
 				C8CA7F5D1A9A167E00E0B44F /* GKVerificationTableViewCell.h */,
 				C8CA7F5E1A9A167E00E0B44F /* GKVerificationTableViewCell.m */,
 				C8CA7F5F1A9A167E00E0B44F /* GKVerificationTableViewCell.xib */,
@@ -466,6 +474,7 @@
 				14BD24161A987A870015DF09 /* Main.storyboard in Resources */,
 				C8CA7F5C1A9A121D00E0B44F /* GKForgotPasswordController.xib in Resources */,
 				14BD241B1A987A870015DF09 /* LaunchScreen.xib in Resources */,
+				C8ACD0CC1AA9DE4900F9E0EB /* GKChangePasswordController.xib in Resources */,
 				E564781D1AA0BC6D006CE49A /* GKUserAuthenticationTableViewCell.xib in Resources */,
 				C8CA7F611A9A167E00E0B44F /* GKVerificationTableViewCell.xib in Resources */,
 				E564781E1AA0BC6D006CE49A /* GKUserAuthenticationView.xib in Resources */,
@@ -573,6 +582,7 @@
 				E555C3C11A9B70C900836965 /* GKUserRegistration.m in Sources */,
 				147927661A9B399A003648FF /* GKRegistrationController.m in Sources */,
 				E5EAD9831A9CB2C1004E8812 /* GKUserRepositoryImpl.m in Sources */,
+				C8ACD0CB1AA9DE4900F9E0EB /* GKChangePasswordController.m in Sources */,
 				14BD240D1A987A870015DF09 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -702,11 +712,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ping Chen (7E92WUZK2W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Ideal Information Industry (Group) Co., Ltd.";
 				INFOPLIST_FILE = GKUserKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "EBF5762D-568D-40AE-84FD-B07BBA921240";
+				PROVISIONING_PROFILE = "3f9daf64-bd03-47a1-8c28-f8003acdf516";
 				SWIFT_OBJC_BRIDGING_HEADER = "GKUserKitExample/GKUserKitExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -718,11 +729,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ping Chen (7E92WUZK2W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Ideal Information Industry (Group) Co., Ltd.";
 				INFOPLIST_FILE = GKUserKitExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "EBF5762D-568D-40AE-84FD-B07BBA921240";
+				PROVISIONING_PROFILE = "3f9daf64-bd03-47a1-8c28-f8003acdf516";
 				SWIFT_OBJC_BRIDGING_HEADER = "GKUserKitExample/GKUserKitExample-Bridging-Header.h";
 			};
 			name = Release;

@@ -135,7 +135,7 @@ viewForFooterInSection:(NSInteger)section
 
 - (IBAction)forgotPasswordDidTap:(id)sender
 {
-    
+    self.navigationController
 }
 
 - (IBAction)registrationDidTap:(id)sender

@@ -7,17 +7,18 @@
 //
 
 #import "GKForgotPasswordController.h"
+#import "GKChangePasswordController.h"
 #import "GKRegistrationTableViewCell.h"
 #import "GKVerificationTableViewCell.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #define kVerificationTime 10;
 @interface GKForgotPasswordController (){
-    BOOL _isValided;
     int _verificationTime;
     NSTimer *_timer;
  
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIButton *nextButton;
 @property (strong, nonatomic) GKVerificationTableViewCell *verificationCell;
 @end
 
@@ -30,6 +31,15 @@
         [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:nil]
              forCellReuseIdentifier:identifier];
     }
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+    self.nextButton=[UIButton buttonWithType:UIButtonTypeCustom];
+    [self.nextButton setTitle:@"下一步" forState:UIControlStateNormal];
+    self.nextButton.backgroundColor=[UIColor redColor];
+    [self.nextButton addTarget:self action:@selector(showChangePassword) forControlEvents:UIControlEventTouchUpInside];
+    self.nextButton.frame=CGRectMake(120, 10, 80, 40);
+    [footerView addSubview:self.nextButton];
+    self.nextButton.hidden=YES;
+    self.tableView.tableFooterView=footerView;
     _verificationTime=kVerificationTime;
 }
 
@@ -49,11 +59,7 @@
 */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_isValided) {
-        return 4;
-    }else{
-        return 2;
-    }
+    return 2;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
@@ -78,20 +84,6 @@
             cell=_verificationCell;
             break;
         }
-        case 2:{
-            GKRegistrationTableViewCell *registrationCell = (GKRegistrationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-            registrationCell.textLabel.text=@"新密码:";
-            registrationCell.textField.placeholder=@"请输入新密码";
-            cell=registrationCell;
-            break;
-        }
-        case 3:{
-            GKRegistrationTableViewCell *registrationCell = (GKRegistrationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-            registrationCell.textLabel.text=@"确认密码:";
-            registrationCell.textField.placeholder=@"请确认密码";
-            cell=registrationCell;
-            break;
-        }
         default:
             break;
     }
@@ -106,14 +98,15 @@
 - (void)verifiation:(id) sender
 {
     
-    RAC(self, self.verificationCell.btnVerification.titleLabel.text) = [[[RACSignal interval:1 onScheduler:[RACScheduler currentScheduler]] startWith:[NSDate date]] map:^id (NSDate *value) {
+    /*RAC(self, self.verificationCell.btnVerification.titleLabel.text) = [[[RACSignal interval:1 onScheduler:[RACScheduler currentScheduler]] startWith:[NSDate date]] map:^id (NSDate *value) {
         NSLog(@"value:%@", value);
         NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSCalendarUnitSecond |
                                             NSCalendarUnitMinute |
                                             NSCalendarUnitSecond fromDate:value];
         return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)dateComponents.hour, (long)dateComponents.minute, (long)dateComponents.second];
-    }];
+    }];*/
     
+    self.nextButton.hidden=NO;
     
     if (_timer) {
         [_timer invalidate];
@@ -128,11 +121,14 @@
     _verificationTime--;
     [_verificationCell.btnVerification setTitle:[NSString stringWithFormat:@"%d",_verificationTime] forState:UIControlStateNormal];
     if (_verificationTime==0) {
-        _isValided=YES;
-        [self.tableView reloadData];
         [_timer invalidate];
         _timer=nil;
         [_verificationCell.btnVerification setTitle:@"重新获取" forState:UIControlStateNormal];
     }
+}
+-(void) showChangePassword
+{
+    GKChangePasswordController *changePasswordController=[[GKChangePasswordController alloc] initWithNibName:@"GKChangePasswordController" bundle:nil];
+    [self.navigationController pushViewController:changePasswordController animated:YES];
 }
 @end
